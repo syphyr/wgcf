@@ -11,7 +11,8 @@ PrivateKey = {{ .PrivateKey }}
 Address = {{ .Address1 }}/32
 Address = {{ .Address2 }}/128
 DNS = 127.0.0.1
-MTU = 1280
+MTU = 1420
+
 [Peer]
 PublicKey = {{ .PublicKey }}
 AllowedIPs = 0.0.0.0/0
