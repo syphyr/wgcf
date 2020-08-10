@@ -6,7 +6,7 @@ func TestGenerateProfile(t *testing.T) {
 	var expectedResult = `[Interface]
 PrivateKey = 1
 Address = 2/32, 3/128
-DNS = 1.1.1.1, 1.0.0.1, 2606:4700:4700::1111, 2606:4700:4700::1001
+DNS = 127.0.0.1
 MTU = 1280
 [Peer]
 PublicKey = 4
