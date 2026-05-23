@@ -24,7 +24,7 @@ type BoundDevice struct {
 	Active bool `json:"active"`
 	Created string `json:"created"`
 	Id string `json:"id"`
-	Model string `json:"model"`
+	Model *string `json:"model,omitempty"`
 	Name *string `json:"name,omitempty"`
 	Role string `json:"role"`
 	Type string `json:"type"`
@@ -37,13 +37,12 @@ type _BoundDevice BoundDevice
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBoundDevice(activated string, active bool, created string, id string, model string, role string, type_ string) *BoundDevice {
+func NewBoundDevice(activated string, active bool, created string, id string, role string, type_ string) *BoundDevice {
 	this := BoundDevice{}
 	this.Activated = activated
 	this.Active = active
 	this.Created = created
 	this.Id = id
-	this.Model = model
 	this.Role = role
 	this.Type = type_
 	return &this
@@ -153,28 +152,36 @@ func (o *BoundDevice) SetId(v string) {
 	o.Id = v
 }
 
-// GetModel returns the Model field value
+// GetModel returns the Model field value if set, zero value otherwise.
 func (o *BoundDevice) GetModel() string {
-	if o == nil {
+	if o == nil || IsNil(o.Model) {
 		var ret string
 		return ret
 	}
-
-	return o.Model
+	return *o.Model
 }
 
-// GetModelOk returns a tuple with the Model field value
+// GetModelOk returns a tuple with the Model field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BoundDevice) GetModelOk() (*string, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.Model) {
 		return nil, false
 	}
-	return &o.Model, true
+	return o.Model, true
 }
 
-// SetModel sets field value
+// HasModel returns a boolean if a field has been set.
+func (o *BoundDevice) HasModel() bool {
+	if o != nil && !IsNil(o.Model) {
+		return true
+	}
+
+	return false
+}
+
+// SetModel gets a reference to the given string and assigns it to the Model field.
 func (o *BoundDevice) SetModel(v string) {
-	o.Model = v
+	o.Model = &v
 }
 
 // GetName returns the Name field value if set, zero value otherwise.
@@ -271,7 +278,9 @@ func (o BoundDevice) ToMap() (map[string]interface{}, error) {
 	toSerialize["active"] = o.Active
 	toSerialize["created"] = o.Created
 	toSerialize["id"] = o.Id
-	toSerialize["model"] = o.Model
+	if !IsNil(o.Model) {
+		toSerialize["model"] = o.Model
+	}
 	if !IsNil(o.Name) {
 		toSerialize["name"] = o.Name
 	}
@@ -294,7 +303,6 @@ func (o *BoundDevice) UnmarshalJSON(data []byte) (err error) {
 		"active",
 		"created",
 		"id",
-		"model",
 		"role",
 		"type",
 	}

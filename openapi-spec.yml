@@ -64,7 +64,6 @@ components:
         - "active"
         - "created"
         - "id"
-        - "model"
         - "role"
         - "type"
 

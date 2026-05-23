@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Active** | **bool** |  | 
 **Created** | **string** |  | 
 **Id** | **string** |  | 
-**Model** | **string** |  | 
+**Model** | Pointer to **string** |  | [optional] 
 **Name** | Pointer to **string** |  | [optional] 
 **Role** | **string** |  | 
 **Type** | **string** |  | 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewBoundDevice
 
-`func NewBoundDevice(activated string, active bool, created string, id string, model string, role string, type_ string, ) *BoundDevice`
+`func NewBoundDevice(activated string, active bool, created string, id string, role string, type_ string, ) *BoundDevice`
 
 NewBoundDevice instantiates a new BoundDevice object
 This constructor will assign default values to properties that have it defined,
@@ -131,6 +131,11 @@ and a boolean to check if the value has been set.
 
 SetModel sets Model field to given value.
 
+### HasModel
+
+`func (o *BoundDevice) HasModel() bool`
+
+HasModel returns a boolean if a field has been set.
 
 ### GetName
 

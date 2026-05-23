@@ -100,13 +100,17 @@ func PrintAccountDetails(account *cloudflare.Account, boundDevices []cloudflare.
 		if device.Name != nil {
 			name = *device.Name
 		}
+		model := "N/A"
+		if device.Model != nil {
+			model = *device.Model
+		}
 		id := device.Id
 		if device.Id == viper.GetString(config.DeviceId) {
 			id += " (current)"
 		}
 		fmt.Printf("%-9s : %s\n", "Id", id)
 		fmt.Printf("%-9s : %s\n", "Type", device.Type)
-		fmt.Printf("%-9s : %s\n", "Model", device.Model)
+		fmt.Printf("%-9s : %s\n", "Model", model)
 		fmt.Printf("%-9s : %s\n", "Name", name)
 		fmt.Printf("%-9s : %t\n", "Active", device.Active)
 		fmt.Printf("%-9s : %s\n", "Created", device.Created)
