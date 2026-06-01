@@ -11,7 +11,7 @@ import (
 var profileTemplate = `[Interface]
 PrivateKey = {{ .PrivateKey }}
 Address = {{ .Address1 }}/32, {{ .Address2 }}/128
-DNS = 127.0.0.1
+DNS = 127.0.0.1, ::1
 MTU = 1420
 
 [Peer]
