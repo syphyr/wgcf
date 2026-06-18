@@ -4,7 +4,7 @@ go 1.25.0
 
 require (
 	github.com/ViRb3/wgcf/v2/openapi v0.0.0-00010101000000-000000000000
-	github.com/cockroachdb/errors v1.13.0
+	github.com/cockroachdb/errors v1.14.0
 	github.com/dustin/go-humanize v1.0.1
 	github.com/manifoldco/promptui v0.9.0
 	github.com/spf13/cobra v1.10.2
